@@ -1,13 +1,107 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #212529;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  margin: 1em 0;
+}
+
+header h1 {
+  color: #c9c9c9;
+  font-size: 1.5rem;
+  font-family: "Poppins", "Roboto", "Open Sans", "Arial";
+  text-align: center;
+}
+
+.add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr auto;
+  grid-template-areas: "name name" "date time" "submit cancel";
+  font-size: 0.85rem;
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 0.1em;
+  border-color: #707070;
+  padding: 1em 1em;
+  margin: 0 2em;
+}
+
+.form-control input {
+  width: 100%;
+  height: 2.2em;
+  padding: 0 0.5em;
+  font-family: "Open Sans", "Poppins", "Roboto", "Arial";
+  background-color: #2b2d38;
+  border: none;
+  border-radius: 0.3em;
+}
+
+.form-control label {
+  display: block;
+  color: #c9c9c9;
+  font-family: "Open Sans", "Poppins", "Roboto", "Arial";
+  margin: 0.35em 0 0.4em 0;
+  padding-left: 0.2em;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.3em;
+  font-family: "Open Sans", "Poppins", "Roboto", "Arial";
+  font-size: 0.7rem;
+}
+
+.name-section {
+  grid-area: name;
+  justify-self: center;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.date-section {
+  grid-area: date;
+  width: 95%;
+}
+
+.time-section {
+  grid-area: time;
+  width: 95%;
+  justify-self: end;
+}
+
+.btn-add {
+  grid-area: submit;
+  justify-self: end;
+  width: 48%;
+  height: 2.5em;
+  margin-right: 0.8em;
+  color: #fff;
+  background-color: #c46083;
+}
+
+.btn-cancel {
+  grid-area: cancel;
+  width: 48%;
+  height: 2.5em;
+  margin-left: 0.8em;
+  border: solid;
+  border-color: #c46083;
+  border-width: 0.1em;
+  color: #c46083;
+  background-color: transparent;
 }
