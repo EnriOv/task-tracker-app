@@ -24,6 +24,40 @@ header h1 {
   text-align: center;
 }
 
+.toggle-section {
+  display: grid;
+  grid-template-columns: 0.2fr auto;
+  grid-template-rows: auto;
+  grid-template-areas: "btn description";
+  cursor: pointer;
+  color: #c9c9c9;
+  font-family: "Open Sans", "Poppins", "Roboto", "Arial";
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 0.1em;
+  border-color: #707070;
+  padding: 0.8em 1em;
+  margin: 0 2em;
+}
+
+.toggle-section .btn-toggle {
+  grid-area: btn;
+  align-self: center;
+  justify-self: center;
+  color: #212529;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.6em;
+  width: 1.5em;
+  background-color: #c46083;
+}
+
+.toggle-section .description {
+  grid-area: description;
+  align-self: center;
+  cursor: pointer;
+}
+
 .add-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -42,6 +76,7 @@ header h1 {
   width: 100%;
   height: 2.2em;
   padding: 0 0.5em;
+  color: #c9c9c9;
   font-family: "Open Sans", "Poppins", "Roboto", "Arial";
   background-color: #2b2d38;
   border: none;
@@ -94,6 +129,10 @@ header h1 {
   background-color: #c46083;
 }
 
+.btn-add:hover {
+  background-color: #c46083ab;
+}
+
 .btn-cancel {
   grid-area: cancel;
   width: 48%;
@@ -104,4 +143,9 @@ header h1 {
   border-width: 0.1em;
   color: #c46083;
   background-color: transparent;
+}
+
+.btn-cancel:hover {
+  color: #fff;
+  background-color: #c46083;
 }
