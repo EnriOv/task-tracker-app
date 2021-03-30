@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { FaCheck } from 'react-icons/fa'
 
 const Task = (props) => {
-    const { name, date, time, status } = props
+    const { id, name, date, time, status, updateData } = props
 
     const [taskStatus, setTaskStatus] = useState(status)
 
     const updateStatus = () => {
+        updateData(id)
         setTaskStatus(!taskStatus)
     }
 

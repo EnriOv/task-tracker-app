@@ -4,7 +4,7 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import Task from './Task'
 
 const ToggleList = (props) => {
-    const { listTitle, items } = props
+    const { listTitle, items, updateData } = props
 
     const [showList, setShowList] = useState(false)
 
@@ -22,9 +22,9 @@ const ToggleList = (props) => {
             <div className='items-section'>
                 {items.length ?
                 items.map((task) => {
-                    return <Task key={task.id} name={task.name} 
+                    return <Task key={task.id} id={task.id} name={task.name} 
                                 date={task.date} time={task.time} 
-                                status={task.status}/>
+                                status={task.status} updateData={updateData}/>
                 }) :
                 <h3 className='done-title'>You are done for today</h3>}
             </div>}

@@ -19,6 +19,15 @@ function App() {
     console.log(task)
   }
 
+  // Update status from data
+  const onUpdateStatus = (id) => {
+    data.filter((task) => {
+      if(task.id === id) {
+        task.status = !task.status
+      }
+    })
+  }
+
   // Toggle to opposite state
   const changeFormDisplay = () => {
     setShowAddTask(!showAddTask)
@@ -32,7 +41,7 @@ function App() {
       (<AddTask onAdd={addTask} onDone={changeFormDisplay}/>) : 
       (<ToggleButton onToggle={changeFormDisplay} />)}
 
-      <ToggleList listTitle={'My tasks'} items={tasks}/>
+      <ToggleList listTitle={'My tasks'} items={tasks} updateData={onUpdateStatus}/>
     </div>
   );
 }
