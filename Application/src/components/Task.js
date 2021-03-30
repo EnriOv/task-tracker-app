@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { FaCheck } from 'react-icons/fa'
 
 const Task = (props) => {
-    const { id, name, date, time, status, updateData } = props
+    const { task, updateData } = props
 
-    const [taskStatus, setTaskStatus] = useState(status)
+    const [taskStatus, setTaskStatus] = useState(task.status)
 
     const updateStatus = () => {
-        updateData(id)
+        updateData(task.id)
         setTaskStatus(!taskStatus)
     }
 
@@ -17,8 +17,8 @@ const Task = (props) => {
                     onClick={updateStatus}>
                 <FaCheck className='checkmark-icon'/>
             </button>
-            <label className='task-name'>{name}</label>
-            <label className='task-date'>{date} at {time} </label>
+            <label className='task-name'>{task.name}</label>
+            <label className='task-date'>{task.date} at {task.time} </label>
         </div>
     )
 }

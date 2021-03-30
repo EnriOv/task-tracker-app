@@ -20,13 +20,10 @@ const ToggleList = (props) => {
             </button>
             {showList &&
             <div className='items-section'>
-                {items.length ?
+                {items.length > 0 ?
                 items.map((task) => {
-                    return <Task key={task.id} id={task.id} name={task.name} 
-                                date={task.date} time={task.time} 
-                                status={task.status} updateData={updateData}/>
-                }) :
-                <h3 className='done-title'>You are done for today</h3>}
+                    return <Task key={task.id} task={task} updateData={updateData}/>
+                }) : <h3 className='done-title'>You are done for today</h3>}
             </div>}
         </section>
     )
