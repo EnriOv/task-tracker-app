@@ -6,7 +6,13 @@ import ToggleButton from './components/ToggleButton'
 import ToggleList from './components/ToggleList'
 
 function App() {
+  const data = [
+    {id: 1, status:false, name: 'Clean dishes', date:'29/03/2021', time:'10:30'},
+    {id: 2, status:false, name: 'Send email', date:'29/03/2021', time:'12:30'}
+  ]
+
   const [showAddTask, setShowAddTask] = useState(false)
+  const [tasks, setTasks] = useState(data)
 
   // Add task
   const addTask = (task) => {
@@ -26,7 +32,7 @@ function App() {
       (<AddTask onAdd={addTask} onDone={changeFormDisplay}/>) : 
       (<ToggleButton onToggle={changeFormDisplay} />)}
 
-      <ToggleList listTitle={'My tasks'} />
+      <ToggleList listTitle={'My tasks'} items={tasks}/>
     </div>
   );
 }
