@@ -16,7 +16,14 @@ function App() {
 
   // Add task
   const addTask = (task) => {
-    console.log(task)
+    var id = 1;
+    const status = false
+
+    if(tasks.length > 0) {
+      id = tasks[tasks.length - 1].id + 1
+    }
+
+    setTasks([...tasks, {id, status, ...task}])
   }
 
   // Update status from data

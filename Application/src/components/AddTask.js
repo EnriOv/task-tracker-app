@@ -3,23 +3,25 @@ import { useState } from 'react'
 const AddTask = (props) => {
     const {onAdd, onDone} = props
 
-    const [text, setText] = useState('')
-    const [day, setDay] = useState('')
-    const [time, setTime] = useState('')
+    const [task, setTask] = useState({name:'', date:'', time:''})
+
+    const handleChange = (e) => {
+      const name = e.target.name;
+      const value = e.target.value;
+
+      setTask({...task, [name]:value})
+    }
 
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if(!text) {
+        if(!task.name) {
             alert('Please add a task name to create new task.')
             return
         }
 
-        onAdd({text, day, time})
-
-        setText('')
-        setDay('')
-        setTime('')
+        onAdd(task)
+        setTask({name:'', date:'', time:''})
     }
 
     return (
@@ -27,27 +29,28 @@ const AddTask = (props) => {
       <div className='form-control name-section'>
         <input
           type='text'
+          name='name'
           placeholder='Task name'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={task.name}
+          onChange={handleChange}
         />
         <label>Add task name</label>
       </div>
       <div className='form-control date-section'>
         <input
-          type='text'
-          placeholder='DD/MM/YY'
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
+          type='date'
+          name='date'
+          value={task.date}
+          onChange={handleChange}
         />
         <label>Date</label>
       </div>
       <div className='form-control time-section'>
         <input
-          type='text'
-          placeholder='HH:MM'
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
+          type='time'
+          name='time'
+          value={task.time}
+          onChange={handleChange}
         />
         <label>Time</label>
       </div>
@@ -59,8 +62,7 @@ const AddTask = (props) => {
         className='btn btn-cancel' 
         onClick={onDone}
       />
-    </form>
-    )
+    </form>)
 }
 
 export default AddTask

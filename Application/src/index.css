@@ -100,6 +100,7 @@ header h1 {
   border-radius: 0.3em;
   font-family: "Open Sans", "Poppins", "Roboto", "Arial";
   font-size: 0.7rem;
+  outline: none;
 }
 
 .name-section {
@@ -130,7 +131,7 @@ header h1 {
   background-color: #c46083;
 }
 
-.btn-add:hover {
+.btn-add:active {
   background-color: #c46083ab;
 }
 
@@ -146,7 +147,7 @@ header h1 {
   background-color: transparent;
 }
 
-.btn-cancel:hover {
+.btn-cancel:active {
   color: #fff;
   background-color: #c46083;
 }
@@ -172,7 +173,6 @@ header h1 {
   text-align: center;
   background-color: transparent;
   border: none;
-  outline: none;
 }
 
 .list-section .icon-list {
@@ -191,6 +191,7 @@ header h1 {
   font-weight: 450;
   font-size: 1rem;
   padding: 1em 0;
+  margin: 1em 0;
   border-top: solid;
   border-bottom: solid;
   border-width: 0.1em;
@@ -261,5 +262,4 @@ header h1 {
   background-color: transparent;
   color: #ff5e61;
   font-size: 1.2em;
-  outline: none;
 }
