@@ -21,11 +21,17 @@ function App() {
 
   // Update status from data
   const onUpdateStatus = (id) => {
-    data.filter((task) => {
+    setTasks(tasks.map((task) => {
       if(task.id === id) {
         task.status = !task.status
       }
-    })
+      return task
+    }))
+  }
+
+  // Delete task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id ))
   }
 
   // Toggle to opposite state
@@ -41,7 +47,7 @@ function App() {
       (<AddTask onAdd={addTask} onDone={changeFormDisplay}/>) : 
       (<ToggleButton onToggle={changeFormDisplay} />)}
 
-      <ToggleList listTitle={'My tasks'} items={tasks} updateData={onUpdateStatus}/>
+      <ToggleList listTitle={'My tasks'} tasks={tasks} updateStatus={onUpdateStatus} onDelete={deleteTask}/>
     </div>
   );
 }

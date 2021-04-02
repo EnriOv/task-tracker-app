@@ -199,9 +199,11 @@ header h1 {
 
 .task-container {
   display: grid;
-  grid-template-columns: 4em auto;
+  grid-template-columns: 4em auto 4em;
   grid-template-rows: 2em 2em;
-  grid-template-areas: "button name" "button date";
+  grid-template-areas:
+    "button name delete"
+    "button date delete";
   background-color: #2b2d38;
   border-radius: 0.6em;
   margin: 0.7em 0;
@@ -250,4 +252,14 @@ header h1 {
   color: #2b2d38;
   font-size: 1.4em;
   padding-top: 0.3em;
+}
+
+.task-container .delete-btn {
+  grid-area: delete;
+  justify-self: center;
+  align-self: center;
+  background-color: transparent;
+  color: #ff5e61;
+  font-size: 1.2em;
+  outline: none;
 }

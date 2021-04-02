@@ -1,24 +1,21 @@
-import { useState } from 'react'
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaTrash } from 'react-icons/fa'
 
 const Task = (props) => {
-    const { task, updateData } = props
+    const { task, updateStatus, onDelete } = props
 
-    const [taskStatus, setTaskStatus] = useState(task.status)
-
-    const updateStatus = () => {
-        updateData(task.id)
-        setTaskStatus(!taskStatus)
+    const onUpdateStatus = () => {
+        updateStatus(task.id)
     }
 
     return (
         <div className='task-container'>
-            <button className={taskStatus ? 'btn task-btn-done' : 'btn task-btn'}
-                    onClick={updateStatus}>
+            <button className={task.status ? 'btn task-btn-done' : 'btn task-btn'}
+                    onClick={onUpdateStatus}>
                 <FaCheck className='checkmark-icon'/>
             </button>
             <label className='task-name'>{task.name}</label>
             <label className='task-date'>{task.date} at {task.time} </label>
+            <FaTrash className="btn delete-btn" onClick={() => onDelete(task.id)}/>
         </div>
     )
 }
