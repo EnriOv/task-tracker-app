@@ -182,7 +182,6 @@ header h1 {
 
 .list-section .items-section {
   grid-area: items;
-  margin: 0.5em 0;
 }
 
 .done-title {
@@ -196,4 +195,71 @@ header h1 {
   border-bottom: solid;
   border-width: 0.1em;
   border-color: #707070;
+}
+
+.task-container {
+  display: grid;
+  grid-template-columns: 4em auto 4em;
+  grid-template-rows: 2em 2em;
+  grid-template-areas:
+    "button name delete"
+    "button date delete";
+  background-color: #2b2d38;
+  border-radius: 0.6em;
+  margin: 0.7em 0;
+}
+
+.task-container .task-btn-done {
+  grid-area: button;
+  align-self: center;
+  justify-self: center;
+  outline: none;
+  background-color: #c46083;
+  border-radius: 45%;
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.task-container .task-btn {
+  grid-area: button;
+  align-self: center;
+  justify-self: center;
+  background-color: transparent;
+  outline: none;
+  border: solid;
+  border-color: #c46083;
+  border-radius: 45%;
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.task-container .task-name {
+  grid-area: name;
+  color: #c9c9c9;
+  font-size: 1.2rem;
+  align-self: end;
+}
+
+.task-container .task-date {
+  grid-area: date;
+  color: #c9c9c9a8;
+  font-size: 0.8rem;
+  align-self: start;
+  padding-top: 0.3em;
+}
+
+.task-container .checkmark-icon {
+  color: #2b2d38;
+  font-size: 1.4em;
+  padding-top: 0.3em;
+}
+
+.task-container .delete-btn {
+  grid-area: delete;
+  justify-self: center;
+  align-self: center;
+  background-color: transparent;
+  color: #ff5e61;
+  font-size: 1.2em;
+  outline: none;
 }

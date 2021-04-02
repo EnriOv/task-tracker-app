@@ -1,0 +1,23 @@
+import { FaCheck, FaTrash } from 'react-icons/fa'
+
+const Task = (props) => {
+    const { task, updateStatus, onDelete } = props
+
+    const onUpdateStatus = () => {
+        updateStatus(task.id)
+    }
+
+    return (
+        <div className='task-container'>
+            <button className={task.status ? 'btn task-btn-done' : 'btn task-btn'}
+                    onClick={onUpdateStatus}>
+                <FaCheck className='checkmark-icon'/>
+            </button>
+            <label className='task-name'>{task.name}</label>
+            <label className='task-date'>{task.date} at {task.time} </label>
+            <FaTrash className="btn delete-btn" onClick={() => onDelete(task.id)}/>
+        </div>
+    )
+}
+
+export default Task
