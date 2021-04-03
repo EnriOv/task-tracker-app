@@ -8,8 +8,7 @@ const ToggleButton = (props) => {
             <button 
             type='button' 
             className="btn btn-toggle" 
-            onClick={onToggle} 
-            >
+            onClick={onToggle}>
                 <FaPlus style={{
                     textAlign: 'center',
                     color: ' #212529',
