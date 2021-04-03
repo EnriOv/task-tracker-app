@@ -9,13 +9,13 @@ const Task = (props) => {
 
     const checkTimeInputs = () => {
         if(task.date && task.time) {
-            return `${task.date} at ${task.time} hours`
+            return `${task.date} at ${task.time}`
         }
         if(task.date && !task.time) {
             return `${task.date}`
         }
         if(!task.date && task.time) {
-            return `At ${task.time} hours`
+            return `At ${task.time}`
         }
     }
 

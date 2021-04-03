@@ -103,6 +103,13 @@ header h1 {
   outline: none;
 }
 
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 100%;
+}
+
 .name-section {
   grid-area: name;
   justify-self: center;
@@ -110,15 +117,16 @@ header h1 {
   margin-bottom: 0.5em;
 }
 
-.date-section {
+.add-form .date-section {
   grid-area: date;
-  width: 95%;
+  justify-self: end;
+  width: 100%;
+  padding-right: 0.8em;
 }
 
-.time-section {
+.add-form .time-section {
   grid-area: time;
-  width: 95%;
-  justify-self: end;
+  margin-left: 0.8em;
 }
 
 .btn-add {

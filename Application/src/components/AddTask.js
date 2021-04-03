@@ -1,27 +1,46 @@
 import { useState } from 'react'
+import DatePicker from "react-datepicker"
+
+import "react-datepicker/dist/react-datepicker.css"
 
 const AddTask = (props) => {
     const {onAdd, onDone} = props
 
-    const [task, setTask] = useState({name:'', date:'', time:''})
-
-    const handleChange = (e) => {
-      const name = e.target.name;
-      const value = e.target.value;
-
-      setTask({...task, [name]:value})
-    }
+    const [name, setName] = useState('')
+    const [date, setDate] = useState(null)
+    const [time, setTime] = useState(null)
 
     const onSubmit = (e) => {
-        e.preventDefault()
+      var hours, minutes = 0
+      var newDate = ''
+      var newTime = ''
 
-        if(!task.name) {
-            alert('Please add a task name to create new task.')
-            return
+      e.preventDefault()
+
+      if(!name) {
+          alert('Please add a task name to create new task.')
+          return
+      }
+      if(date) {
+        newDate = date.toString().split(" ")
+        newDate = `${newDate[1]} ${newDate[2]}, ${newDate[3]}`
+      }
+      if(time) {
+        hours   = time.getHours()
+        minutes = time.getMinutes()
+
+        if(hours > 12) {
+          newTime = `${hours-12}:${minutes} pm`
+        } else {
+          newTime = `${hours}:${minutes} am`
         }
+      }
 
-        onAdd(task)
-        setTask({name:'', date:'', time:''})
+      onAdd({name:name, date:newDate, time:newTime})
+
+      setName('')
+      setDate(null)
+      setTime(null)
     }
 
     return (
@@ -29,28 +48,31 @@ const AddTask = (props) => {
       <div className='form-control name-section'>
         <input
           type='text'
-          name='name'
           placeholder='Task name'
-          value={task.name}
-          onChange={handleChange}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <label>Add task name</label>
       </div>
       <div className='form-control date-section'>
-        <input
-          type='date'
-          name='date'
-          value={task.date}
-          onChange={handleChange}
+        <DatePicker
+          placeholderText='Select date'
+          selected={date}
+          onChange={date => setDate(date)}
+          dateFormat="MMMM d, yyyy"
         />
         <label>Date</label>
       </div>
       <div className='form-control time-section'>
-        <input
-          type='time'
-          name='time'
-          value={task.time}
-          onChange={handleChange}
+        <DatePicker
+          placeholderText='Select time'
+          selected={time}
+          onChange={date => setTime(date)}
+          showTimeSelect
+          showTimeSelectOnly
+          timeIntervals={15}
+          timeCaption="Time"
+          dateFormat="h:mm aa"
         />
         <label>Time</label>
       </div>

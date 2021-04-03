@@ -7,8 +7,8 @@ import ToggleList from './components/ToggleList'
 
 function App() {
   const data = [
-    {id: 1, status:false, name: 'Clean dishes', date:'29/03/2021', time:'10:30'},
-    {id: 2, status:false, name: 'Send email', date:'29/03/2021', time:'12:30'}
+    {id: 1, status:false, name: 'Clean dishes', date:'Apr 5, 2021', time:'10:30 am'},
+    {id: 2, status:false, name: 'Send email', date:'Apr 5, 2021', time:'12:30 pm'}
   ]
 
   const [showAddTask, setShowAddTask] = useState(false)
