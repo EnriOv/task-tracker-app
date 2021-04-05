@@ -209,7 +209,7 @@ header h1 {
 .task-container {
   display: grid;
   grid-template-columns: 4em auto 4em;
-  grid-template-rows: 2em 2em;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "button name delete"
     "button date delete";
@@ -245,16 +245,17 @@ header h1 {
 .task-container .task-name {
   grid-area: name;
   color: #c9c9c9;
+  word-break: break-all;
   font-size: 1.2rem;
-  align-self: end;
+  padding-top: 0.3em;
 }
 
 .task-container .task-date {
   grid-area: date;
   color: #c9c9c9a8;
   font-size: 0.8rem;
-  align-self: start;
   padding-top: 0.3em;
+  padding-bottom: 0.6em;
 }
 
 .task-container .checkmark-icon {
