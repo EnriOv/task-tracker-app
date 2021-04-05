@@ -25,7 +25,7 @@ const Task = (props) => {
                     onClick={onUpdateStatus}>
                 <FaCheck className='checkmark-icon'/>
             </button>
-            <label className='task-name'>{task.name}</label>
+            <p className='task-name'>{task.name}</p>
             <label className='task-date'>{checkTimeInputs()} </label>
             <FaTrash className="btn delete-btn" onClick={() => onDelete(task.id)}/>
         </div>
