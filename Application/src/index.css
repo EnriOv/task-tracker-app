@@ -84,7 +84,7 @@ header h1 {
   outline: none;
 }
 
-.form-control label {
+.label {
   display: block;
   color: #c9c9c9;
   font-family: "Open Sans", "Poppins", "Roboto", "Arial";
@@ -209,7 +209,7 @@ header h1 {
 .task-container {
   display: grid;
   grid-template-columns: 4em auto 4em;
-  grid-template-rows: 2em 2em;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "button name delete"
     "button date delete";
@@ -245,16 +245,17 @@ header h1 {
 .task-container .task-name {
   grid-area: name;
   color: #c9c9c9;
+  word-break: break-all;
   font-size: 1.2rem;
-  align-self: end;
+  padding-top: 0.3em;
 }
 
 .task-container .task-date {
   grid-area: date;
   color: #c9c9c9a8;
   font-size: 0.8rem;
-  align-self: start;
   padding-top: 0.3em;
+  padding-bottom: 0.6em;
 }
 
 .task-container .checkmark-icon {
@@ -270,4 +271,65 @@ header h1 {
   background-color: transparent;
   color: #ff5e61;
   font-size: 1.2em;
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    margin: 0 2em;
+  }
+
+  header h1 {
+    text-align: left;
+    padding-left: 3em;
+    padding-bottom: 0.4em;
+  }
+
+  .add-task-title {
+    display: inline-block;
+    color: #c9c9c9;
+    font-size: 1.5rem;
+    font-family: "Poppins", "Roboto", "Open Sans", "Arial";
+    font-weight: 500;
+    margin: 0 0 0.6em 1.2em;
+  }
+
+  .form-container {
+    float: left;
+    width: 33%;
+  }
+
+  .add-form {
+    grid-template-areas: "name name" "date time" "submit submit";
+    border: none;
+    border-radius: 0.6em;
+    background-color: #2b2d38;
+    font-size: 1rem;
+    margin: 0 1.4em;
+  }
+
+  .form-control input {
+    background-color: #474850;
+    font-size: 1rem;
+  }
+
+  .pending-list {
+    display: inline-block;
+    width: 34%;
+  }
+
+  .completed-list {
+    display: inline-block;
+    width: 33%;
+  }
+
+  .list-section {
+    margin: 0 2em;
+  }
+
+  .btn-add {
+    grid-area: submit;
+    justify-self: center;
+    width: 48%;
+    font-size: 0.8rem;
+  }
 }

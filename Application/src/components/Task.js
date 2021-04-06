@@ -17,6 +17,7 @@ const Task = (props) => {
         if(!task.date && task.time) {
             return `At ${task.time}`
         }
+        return 'No date or time specified'
     }
 
     return (
@@ -25,7 +26,7 @@ const Task = (props) => {
                     onClick={onUpdateStatus}>
                 <FaCheck className='checkmark-icon'/>
             </button>
-            <p className='task-name'>{task.name}</p>
+            <label className='task-name'>{task.name}</label>
             <label className='task-date'>{checkTimeInputs()} </label>
             <FaTrash className="btn delete-btn" onClick={() => onDelete(task.id)}/>
         </div>
