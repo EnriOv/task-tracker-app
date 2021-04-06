@@ -6,7 +6,7 @@ import ToggleButton from './components/ToggleButton'
 import ToggleList from './components/ToggleList'
 
 function App() {
-  const [showAddTask, setShowAddTask] = useState(false)
+  const [showAddTask, setShowAddTask] = useState(window.innerWidth > 992)
   const [taskCounter, setTaskCounter] = useState(1)
   const[completedTasks, setCompletedTasks] = useState([])
   const[pendingTasks, setPendingTasks] = useState([])
@@ -29,6 +29,18 @@ function App() {
     setCompletedTasks(completed)
     setPendingTasks(pending)
   }, [])
+
+  useEffect(() => {
+    window.addEventListener('resize', checkWindowSize)
+
+    return () => {
+      window.removeEventListener('resize', checkWindowSize)
+    }
+  })
+
+  const checkWindowSize = () => {
+    window.innerWidth > 992 ? setShowAddTask(true) : setShowAddTask(false);
+  }
 
   // Add new task
   const addTask = (task) => {
@@ -84,16 +96,18 @@ function App() {
       <Header />
 
       {showAddTask ? 
-      (<AddTask onAdd={addTask} onDone={changeFormDisplay}/>) : 
+      (<AddTask showAddTask={showAddTask} onAdd={addTask} onDone={changeFormDisplay}/>) : 
       (<ToggleButton onToggle={changeFormDisplay} />)}
 
-      <ToggleList 
+      <ToggleList
+        listName={'pending-list'}
         listTitle={'My tasks'}
         noTasksTitle={'You are done for today'}
         tasks={pendingTasks}
         updateStatus={onUpdateStatusPending}
         onDelete={deletePendingTask}/>
       <ToggleList 
+        listName={'completed-list'}
         listTitle={'Completed'}
         noTasksTitle={'There are no completed tasks'}
         tasks={completedTasks}
