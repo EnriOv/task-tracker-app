@@ -299,6 +299,7 @@ header h1 {
   }
 
   .add-form {
+    grid-template-areas: "name name" "date time" "submit submit";
     border: none;
     border-radius: 0.6em;
     background-color: #2b2d38;
@@ -323,5 +324,12 @@ header h1 {
 
   .list-section {
     margin: 0 2em;
+  }
+
+  .btn-add {
+    grid-area: submit;
+    justify-self: center;
+    width: 48%;
+    font-size: 0.8rem;
   }
 }

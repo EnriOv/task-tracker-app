@@ -7,6 +7,7 @@ import ToggleList from './components/ToggleList'
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(window.innerWidth > 992)
+  const [showLargeScreen, setShowLargeScreen] = useState(window.innerWidth > 992)
   const [taskCounter, setTaskCounter] = useState(1)
   const[completedTasks, setCompletedTasks] = useState([])
   const[pendingTasks, setPendingTasks] = useState([])
@@ -39,7 +40,10 @@ function App() {
   })
 
   const checkWindowSize = () => {
-    window.innerWidth > 992 ? setShowAddTask(true) : setShowAddTask(false);
+    const size = window.innerWidth > 992
+
+    setShowAddTask(size)
+    setShowLargeScreen(size)
   }
 
   // Add new task
@@ -96,7 +100,7 @@ function App() {
       <Header />
 
       {showAddTask ? 
-      (<AddTask showAddTask={showAddTask} onAdd={addTask} onDone={changeFormDisplay}/>) : 
+      (<AddTask showLargeScreen={showLargeScreen} onAdd={addTask} onDone={changeFormDisplay}/>) : 
       (<ToggleButton onToggle={changeFormDisplay} />)}
 
       <ToggleList
